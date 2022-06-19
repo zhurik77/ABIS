@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ABIS_ModuleDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdultUsers">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIO" Type="nchar" MaxLength="10" />
+    <Property Name="Phone" Type="nchar" MaxLength="10" />
+    <Property Name="TakenBooks" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIO" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Position" Type="nvarchar" MaxLength="255" />
+    <Property Name="Login" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Birthday" Type="datetime" />
+    <Property Name="Address" Type="nvarchar" MaxLength="255" />
+    <Property Name="Education" Type="nvarchar" MaxLength="255" />
+    <Property Name="Salary" Type="int" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="KidsLibrary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIO_Author" Type="nvarchar" MaxLength="255" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="TitleType" Type="nvarchar" MaxLength="255" />
+    <Property Name="Year" Type="nvarchar" MaxLength="255" />
+    <Property Name="SerialNumber" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsAvalible" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KidsUsers">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIO" Type="nchar" MaxLength="10" />
+    <Property Name="Phone" Type="nchar" MaxLength="10" />
+    <Property Name="TakenBooks" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="MainLibrary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIO_Author" Type="nvarchar" MaxLength="255" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="TitleType" Type="nvarchar" MaxLength="255" />
+    <Property Name="Year" Type="nvarchar" MaxLength="255" />
+    <Property Name="SerialNumber" Type="nvarchar" MaxLength="255" />
+    <Property Name="IsAvalible" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ABIS_ModuleDBModelStoreContainer">
+    <EntitySet Name="AdultUsers" EntityType="Self.AdultUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KidsLibrary" EntityType="Self.KidsLibrary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KidsUsers" EntityType="Self.KidsUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MainLibrary" EntityType="Self.MainLibrary" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

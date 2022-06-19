@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ABIS_ModuleDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdultUsers">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIO" Type="nchar" MaxLength="10" />
+          <Property Name="Phone" Type="nchar" MaxLength="10" />
+          <Property Name="TakenBooks" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIO" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Position" Type="nvarchar" MaxLength="255" />
+          <Property Name="Login" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="Education" Type="nvarchar" MaxLength="255" />
+          <Property Name="Salary" Type="int" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="KidsLibrary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIO_Author" Type="nvarchar" MaxLength="255" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="TitleType" Type="nvarchar" MaxLength="255" />
+          <Property Name="Year" Type="nvarchar" MaxLength="255" />
+          <Property Name="SerialNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsAvalible" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KidsUsers">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIO" Type="nchar" MaxLength="10" />
+          <Property Name="Phone" Type="nchar" MaxLength="10" />
+          <Property Name="TakenBooks" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="MainLibrary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIO_Author" Type="nvarchar" MaxLength="255" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="TitleType" Type="nvarchar" MaxLength="255" />
+          <Property Name="Year" Type="nvarchar" MaxLength="255" />
+          <Property Name="SerialNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsAvalible" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ABIS_ModuleDBModelStoreContainer">
+          <EntitySet Name="AdultUsers" EntityType="Self.AdultUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KidsLibrary" EntityType="Self.KidsLibrary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KidsUsers" EntityType="Self.KidsUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MainLibrary" EntityType="Self.MainLibrary" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ABIS_ModuleDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Position" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Education" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Salary" Type="Int32" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="ABIS_ModuleDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employee" EntityType="Self.Employee" />
+          <EntitySet Name="AdultUsers" EntityType="ABIS_ModuleDBModel.AdultUsers" />
+          <EntitySet Name="KidsLibrary" EntityType="ABIS_ModuleDBModel.KidsLibrary" />
+          <EntitySet Name="KidsUsers" EntityType="ABIS_ModuleDBModel.KidsUsers" />
+          <EntitySet Name="MainLibrary" EntityType="ABIS_ModuleDBModel.MainLibrary" />
+        </EntityContainer>
+        <EntityType Name="AdultUsers">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TakenBooks" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="KidsLibrary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO_Author" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TitleType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SerialNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsAvalible" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KidsUsers">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TakenBooks" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MainLibrary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO_Author" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TitleType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SerialNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsAvalible" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ABIS_ModuleDBModelStoreContainer" CdmEntityContainer="ABIS_ModuleDBEntities">
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="ABIS_ModuleDBModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdultUsers">
+            <EntityTypeMapping TypeName="ABIS_ModuleDBModel.AdultUsers">
+              <MappingFragment StoreEntitySet="AdultUsers">
+                <ScalarProperty Name="TakenBooks" ColumnName="TakenBooks" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KidsLibrary">
+            <EntityTypeMapping TypeName="ABIS_ModuleDBModel.KidsLibrary">
+              <MappingFragment StoreEntitySet="KidsLibrary">
+                <ScalarProperty Name="IsAvalible" ColumnName="IsAvalible" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="TitleType" ColumnName="TitleType" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="FIO_Author" ColumnName="FIO_Author" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KidsUsers">
+            <EntityTypeMapping TypeName="ABIS_ModuleDBModel.KidsUsers">
+              <MappingFragment StoreEntitySet="KidsUsers">
+                <ScalarProperty Name="TakenBooks" ColumnName="TakenBooks" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MainLibrary">
+            <EntityTypeMapping TypeName="ABIS_ModuleDBModel.MainLibrary">
+              <MappingFragment StoreEntitySet="MainLibrary">
+                <ScalarProperty Name="IsAvalible" ColumnName="IsAvalible" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="TitleType" ColumnName="TitleType" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="FIO_Author" ColumnName="FIO_Author" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

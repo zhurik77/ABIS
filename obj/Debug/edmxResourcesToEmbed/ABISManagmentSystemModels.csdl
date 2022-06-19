@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ABIS_ModuleDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Position" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Login" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Birthday" Type="DateTime" Precision="3" />
+    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Education" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Salary" Type="Int32" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="ABIS_ModuleDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Employee" EntityType="Self.Employee" />
+    <EntitySet Name="AdultUsers" EntityType="ABIS_ModuleDBModel.AdultUsers" />
+    <EntitySet Name="KidsLibrary" EntityType="ABIS_ModuleDBModel.KidsLibrary" />
+    <EntitySet Name="KidsUsers" EntityType="ABIS_ModuleDBModel.KidsUsers" />
+    <EntitySet Name="MainLibrary" EntityType="ABIS_ModuleDBModel.MainLibrary" />
+  </EntityContainer>
+  <EntityType Name="AdultUsers">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="TakenBooks" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="KidsLibrary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIO_Author" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TitleType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Year" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SerialNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsAvalible" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KidsUsers">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="TakenBooks" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MainLibrary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIO_Author" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TitleType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Year" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SerialNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsAvalible" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>
